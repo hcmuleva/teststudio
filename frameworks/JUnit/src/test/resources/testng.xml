@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="MyTestSuite" verbose="1">
+    <!-- Specify the listeners -->
+    <listeners>
+        <listener class-name="com.mycompany.app.CustomTestListener"/>
+    </listeners>
+
+    <!-- Configuration for test classes -->
+    <test name="MyTestClass">
+        <!-- Include or exclude specific test methods if needed -->
+        <!-- <methods> ... </methods> -->
+
+        <!-- Specify the test classes -->
+        <classes>
+            <class name="com.mycompany.app.AppTest"/>
+            <!-- <class name="com.mycompany.app.TestClass2"/> -->
+            <!-- Add more test classes as needed -->
+        </classes>
+    </test>
+
+    <!-- Additional test configurations or tests can be added here -->
+</suite>

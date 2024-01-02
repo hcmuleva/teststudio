@@ -1,0 +1,2 @@
+# Created at 2023-12-13T06:05:33.489
+java.lang.NoClassDefFoundError: Could not initialize class java.lang.StackTraceElement$HashedModules

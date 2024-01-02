@@ -1,0 +1,40 @@
+affinity: {}
+autoscaling:
+  enabled: false
+  maxReplicas: 100
+  minReplicas: 1
+  targetCPUUtilizationPercentage: 80
+fullnameOverride: ''
+image:
+  jmeter_worker_deploy_repository: harishdell/jmeter-container-worker
+  jmeter_worker_deploy_tag: 0.0.0.1
+  pullPolicy: IfNotPresent
+imagePullSecrets: []
+ingress:
+  annotations: {}
+  className: ''
+  enabled: false
+  hosts:
+  - host: chart-example.local
+    paths:
+    - path: /
+      pathType: ImplementationSpecific
+  tls: []
+jmeter_worker_deploy: 1
+jmeter_worker_deploy_name: fileservice-worker
+nameOverride: ''
+nodeSelector: {}
+podAnnotations: {}
+podSecurityContext: {}
+resources: {}
+securityContext: {}
+service:
+  jmeter_primary_deploy_port: 60000
+  jmeter_worker_deploy_port_1: 1099
+  jmeter_worker_deploy_port_2: 50000
+  type: ClusterIP
+serviceAccount:
+  annotations: {}
+  create: true
+  name: ''
+tolerations: []

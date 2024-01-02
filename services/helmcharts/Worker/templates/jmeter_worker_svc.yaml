@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: jmeter-worker-svc
+  labels:
+    jmeter_mode: worker
+spec:
+  clusterIP: None
+  ports:
+    - port: {{ .Values.service.jmeter_worker_deploy_port_1 }}
+      name: first
+      targetPort: {{ .Values.service.jmeter_worker_deploy_port_1 }}
+    - port: {{ .Values.service.jmeter_worker_deploy_port_2 }}
+      name: second
+      targetPort: {{ .Values.service.jmeter_worker_deploy_port_2 }}
+  selector:
+    jmeter_mode: worker

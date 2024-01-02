@@ -1,0 +1,30 @@
+# Default values for strapi_helm.
+# This is a YAML-formatted file.
+# Declare variables to be passed into your templates.
+
+replicaCount: 1
+
+image:
+  repository: testengine-controller
+  pullPolicy: IfNotPresent
+  # Overrides the image tag whose default is the chart appVersion.
+  tag: "latest"
+
+DATABASE_CLIENT: postgres
+DATABASE_HOST: 192.168.18.7
+DATABASE_PORT: 5432
+DATABASE_NAME: strapi
+DATABASE_USERNAME: testengine
+DATABASE_PASSWORD: testengine 
+
+service:
+  type: ClusterIP
+  port: 1267
+
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 100
+  targetCPUUtilizationPercentage: 80
+  # targetMemoryUtilizationPercentage: 80

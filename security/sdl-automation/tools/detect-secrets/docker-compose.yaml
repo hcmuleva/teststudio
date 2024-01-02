@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  detect-secrets:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - ${SCAN_DIR}:/app/scan_directory:ro
+      - ${OUTPUT_DIR}:/app/output
+    command: ["scan", "--all-files /app/scan_directory > /app/output/results.txt"]

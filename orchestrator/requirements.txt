@@ -1,0 +1,7 @@
+flask
+flask[async]
+aiohttp
+requests
+pyyaml
+flask-cors
+pip3 install GitPython

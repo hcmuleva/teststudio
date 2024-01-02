@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testng-results ignored="0" total="2" passed="2" failed="0" skipped="0">
+  <reporter-output>
+  </reporter-output>
+  <suite started-at="2023-12-13T05:54:18 IST" name="Command line suite" finished-at="2023-12-13T05:54:18 IST" duration-ms="0">
+    <groups>
+    </groups>
+    <test started-at="2023-12-13T05:54:18 IST" name="Command line test" finished-at="2023-12-13T05:54:18 IST" duration-ms="0">
+      <class name="com.mycompany.app.AppTest">
+        <test-method signature="additionTest()[pri:0, instance:com.mycompany.app.AppTest@36b4091c]" started-at="2023-12-13T05:54:18 IST" name="additionTest" finished-at="2023-12-13T05:54:18 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- additionTest -->
+        <test-method signature="additionSubTest()[pri:0, instance:com.mycompany.app.AppTest@36b4091c]" started-at="2023-12-13T05:54:18 IST" name="additionSubTest" finished-at="2023-12-13T05:54:18 IST" duration-ms="0" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- additionSubTest -->
+        <test-method is-config="true" signature="printTestResults()[pri:0, instance:com.mycompany.app.AppTest@36b4091c]" started-at="2023-12-13T05:54:18 IST" name="printTestResults" finished-at="2023-12-13T05:54:51 IST" duration-ms="32523" status="PASS">
+          <reporter-output>
+          </reporter-output>
+        </test-method> <!-- printTestResults -->
+      </class> <!-- com.mycompany.app.AppTest -->
+    </test> <!-- Command line test -->
+  </suite> <!-- Command line suite -->
+</testng-results>

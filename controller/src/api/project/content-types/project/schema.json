@@ -1,0 +1,78 @@
+{
+  "kind": "collectionType",
+  "collectionName": "projects",
+  "info": {
+    "singularName": "project",
+    "pluralName": "projects",
+    "displayName": "project",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "description": {
+      "type": "richtext"
+    },
+    "teams": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::team.team",
+      "inversedBy": "projects"
+    },
+    "logo": {
+      "type": "media",
+      "multiple": false,
+      "required": false,
+      "allowedTypes": [
+        "images"
+      ]
+    },
+    "configs": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::config.config",
+      "mappedBy": "project"
+    },
+    "runtests": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::runtest.runtest",
+      "mappedBy": "project"
+    },
+    "orchestratorpath": {
+      "type": "json"
+    },
+    "influxdburl": {
+      "type": "string"
+    },
+    "influxdbtoken": {
+      "type": "string"
+    },
+    "influxdbbucket": {
+      "type": "string"
+    },
+    "influxdborg": {
+      "type": "string"
+    },
+    "githuburl": {
+      "type": "string"
+    },
+    "githubbranch": {
+      "type": "string"
+    },
+    "githubtoken": {
+      "type": "string"
+    },
+    "githubuser": {
+      "type": "string"
+    },
+    "auttype": {
+      "type": "string"
+    }
+  }
+}

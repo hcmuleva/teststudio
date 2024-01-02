@@ -1,0 +1,24 @@
+{
+  "kind": "collectionType",
+  "collectionName": "demo1s",
+  "info": {
+    "singularName": "demo1",
+    "pluralName": "demo1s",
+    "displayName": "demo1"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "age": {
+      "type": "integer"
+    },
+    "surename": {
+      "type": "string"
+    }
+  }
+}

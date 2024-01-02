@@ -1,0 +1,36 @@
+version: '3'
+
+services:
+  strapi:
+    container_name: strapi
+    image: orchestrator:1.0.0
+    environment:
+      - DATABASE_CLIENT=postgres
+      - DATABASE_HOST=db
+      - NODE_ENV=development
+      - DATABASE_PORT=5432
+      - DATABASE_NAME=strapi
+      - DATABASE_USERNAME=strapi
+      - DATABASE_PASSWORD=strapi
+    ports:
+      - 1337:1337
+    volumes:
+      - ./app:/srv/app
+    depends_on:
+      - db
+
+  db:
+    container_name: postgres
+    image: postgres
+    restart: always
+    
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db:/var/lib/postgresql/data
+      - ./pg_hba.conf:/etc/postgresql/pg_hba.conf
+    environment:
+      DB_HOST: 192.168.1.10
+      POSTGRES_USER: strapi
+      POSTGRES_PASSWORD: strapi
+      POSTGRES_DB: strapi

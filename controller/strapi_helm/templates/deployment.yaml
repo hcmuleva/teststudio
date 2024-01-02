@@ -1,0 +1,37 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: strapi-helm
+  labels:
+    image_version: v1
+spec:
+  {{- if not .Values.autoscaling.enabled }}
+  replicas: {{ .Values.replicaCount }}
+  {{- end }}
+  selector:
+    matchLabels:
+      image_version: v1
+  template:
+    metadata:
+      labels:
+        image_version: v1
+    spec:
+      containers:
+        - name: {{ .Chart.Name }}
+          image: "{{ .Values.image.repository }}:{{ .Values.image.tag}}"
+          imagePullPolicy: {{ .Values.image.pullPolicy }}
+          ports:
+          - containerPort: {{ .Values.service.port }}
+          env:
+          - name: DATABASE_CLIENT
+            value: "{{.Values.DATABASE_CLIENT}}"
+          - name: DATABASE_HOST
+            value: "{{.Values.DATABASE_HOST}}"
+          - name: DATABASE_PORT
+            value: "{{.Values.DATABASE_PORT}}"
+          - name: DATABASE_NAME
+            value: "{{.Values.DATABASE_NAME}}"
+          - name: DATABASE_USERNAME
+            value: "{{.Values.DATABASE_USERNAME}}"
+          - name: DATABASE_PASSWORD
+            value: "{{.Values.DATABASE_PASSWORD}}"

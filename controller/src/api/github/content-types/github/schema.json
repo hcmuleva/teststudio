@@ -1,0 +1,33 @@
+{
+  "kind": "collectionType",
+  "collectionName": "githubs",
+  "info": {
+    "singularName": "github",
+    "pluralName": "githubs",
+    "displayName": "github"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "giturl": {
+      "type": "string"
+    },
+    "gitbranch": {
+      "type": "string"
+    },
+    "gituser": {
+      "type": "string"
+    },
+    "gittoken": {
+      "type": "string"
+    },
+    "config": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::config.config",
+      "inversedBy": "github"
+    }
+  }
+}

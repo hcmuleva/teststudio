@@ -1,0 +1,8 @@
+{
+    "name": "custom-auth",
+    "private": true,
+    "dependencies": {
+      "strapi-plugin-auth": "4.9.0"
+    }
+  }
+  

@@ -1,0 +1,77 @@
+{
+  "UNIT": [
+      {
+          "value": "JUnit",
+          "label": "JUnit"
+      },
+      {
+          "value": "TestNG",
+          "label": "TestNG"
+      },
+      {
+          "value": "Mockito1",
+          "label": "Mockito1"
+      },
+      {
+          "value": "Pytest",
+          "label": "Pytest"
+      },
+      {
+          "value": "NUnit",
+          "label": "NUnit"
+      },
+      {
+          "value": "MSTest",
+          "label": "MSTest"
+      },
+      {
+          "value": "XUnit",
+          "label": "XUnit"
+      },
+      {
+          "value": "Jasmine",
+          "label": "Jasmine"
+      },
+      {
+          "value": "Mocha",
+          "label": "Mocha"
+      },
+      {
+          "value": "Jest",
+          "label": "Jest"
+      }
+  ],
+  "FUNCTIONAL": [{
+      "value": "KARATE",
+      "label": "KARATE"
+  },
+  {
+      "value": "KARATESELENIUM",
+      "label": "KARATESELENIUM"
+  },
+  {
+      "value": "APPIUM",
+      "label": "APPIUM"
+  }
+],
+  "PERFORMANCE": [
+  {
+      "value": "JMETER",
+      "label": "JMETER"
+  },
+  {
+      "value": "GATLING",
+      "label": "GATLING"
+  }
+],
+  "SECURITY": [
+  {
+      "value": "OWASPZAP",
+      "label": "OWASPZAP"
+  },
+  {
+      "value": "BURPSUITE",
+      "label": "BURPSUITE"
+  }
+  ]
+}

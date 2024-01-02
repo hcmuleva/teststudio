@@ -1,0 +1,37 @@
+{
+  "kind": "collectionType",
+  "collectionName": "influxdbs",
+  "info": {
+    "singularName": "influxdb",
+    "pluralName": "influxdbs",
+    "displayName": "influxdb",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "bucket_name": {
+      "type": "string"
+    },
+    "org_name": {
+      "type": "string"
+    },
+    "influxtoken": {
+      "type": "string"
+    },
+    "port": {
+      "type": "string"
+    },
+    "config": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::config.config",
+      "inversedBy": "influxdb"
+    },
+    "influxdburl": {
+      "type": "string"
+    }
+  }
+}

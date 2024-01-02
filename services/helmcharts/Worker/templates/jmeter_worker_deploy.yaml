@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.jmeter_worker_deploy_name }}
+  labels:
+    jmeter_mode: worker
+spec:
+  replicas: {{ .Values.jmeter_worker_deploy }}
+  selector:
+    matchLabels:
+      jmeter_mode: worker
+  template:
+    metadata:
+      labels:
+        jmeter_mode: worker
+    spec:
+      containers:
+      - name: jmworker
+        image: {{ .Values.image.jmeter_worker_deploy_repository }}:{{ .Values.image.jmeter_worker_deploy_tag }}
+        ports:
+        - containerPort: {{ .Values.service.jmeter_worker_deploy_port_1 }}
+        - containerPort: {{ .Values.service.jmeter_worker_deploy_port_2 }}

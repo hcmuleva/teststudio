@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Values.jmeter_primary_deploy_name }}
+  labels:
+    jmeter_mode: primary
+spec:
+  replicas: {{ .Values.jmeter_primary_deploy }}
+  selector:
+    matchLabels:
+      jmeter_mode: primary
+  template:
+    metadata:
+      labels:
+        jmeter_mode: primary
+    spec:
+      containers:
+      - name: jmprimary
+        image: {{ .Values.image.jmeter_primary_deploy_repository }}:{{ .Values.image.jmeter_primary_deploy_tag }}
+        command: [ "/bin/bash", "-c", "--" ]
+        args: [ "while true; do sleep 30; done;" ]
+        volumeMounts:
+          - name: loadtest
+            mountPath: /load_test
+            subPath: "load_test"
+        ports:
+        - containerPort: {{ .Values.service.jmeter_primary_deploy_port }}
+      volumes:
+      - name: loadtest 
+        configMap:
+          name: jmeter-load-test

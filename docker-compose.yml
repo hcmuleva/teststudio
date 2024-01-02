@@ -1,0 +1,74 @@
+version: '3.8'
+
+services:
+  studiocontroller:
+    container_name: studiocontroller
+    image: harishdell/studiocontroller:latest
+    environment:
+      - DATABASE_CLIENT=postgres
+      - DATABASE_HOST=db
+      - NODE_ENV=development
+      - DATABASE_PORT=5432  # Use the default PostgreSQL port
+      - DATABASE_NAME=strapi
+      - DATABASE_USERNAME=strapi
+      - DATABASE_PASSWORD=strapi
+    ports:
+      - 1337:1337
+    volumes:
+      - ./app:/srv/app
+    depends_on:
+      - db
+    networks:
+      - my_network
+
+  webstudio:
+    container_name: webstudio
+    image: harishdell/webstudio:latest
+    ports:
+      - 3002:80
+    environment:
+      REACT_APP_API_SERVER: http://studiocontroller:1337
+      REACT_APP_ORCHESTRATOR_SERVER: http://192.168.29.59:5000
+      REACT_APP_TOKEN_KEY: strapi-jwt-token
+      REACT_APP_ORCHESTRATOR_API_URL: http://192.168.29.59:5000
+    volumes:
+      - ./web:/usr/src/app
+    networks:
+      - my_network
+  prometheus:
+    image: prom/prometheus
+    restart: always
+    volumes:
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml
+    ports:
+     - "9090:9090"
+  grafana:
+    image: grafana/grafana
+    restart: always
+    environment:
+      GF_AUTH_ANONYMOUS_ENABLED: "true"
+      GF_AUTH_ANONYMOUS_ORG_ROLE: "Viewer"
+    ports:
+      - "3004:3000"
+    depends_on:
+      - prometheus    
+
+  db:
+    container_name: postgres
+    image: postgres
+    restart: always
+    ports:
+      - 5432:5432
+    volumes:
+      - ./db:/var/lib/postgresql/data
+      - ./db/pg_hba.conf:/etc/postgresql/pg_hba.conf:ro  # Make pg_hba.conf read-only
+    environment:
+      POSTGRES_USER: strapi
+      POSTGRES_PASSWORD: strapi
+      POSTGRES_DB: strapi
+    networks:
+      - my_network
+
+networks:
+  my_network:
+    driver: bridge
